@@ -17,6 +17,4 @@
         - vim
         - postgresql-13
         - net-tools
-        - zabbix-agent
         - dstat
-###else status; installed but not ready yet.
