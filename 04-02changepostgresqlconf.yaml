@@ -4,30 +4,7 @@
     become: yes
     vars:
       ansible_python_interpreter: /usr/bin/python3
-#task once: file created, after changed test
-#    tasks:
-#      - name: File Create for regexp line
-#        file:
-#          path: /home/lockerbox/testforpostgresqllistenaddress.conf
-#          state: touch
-#task two: file copy, after changed test
-    # tasks:
-    #   - name: File Copy for regexp line
-    #     ansible.builtin.copy:
-    #       src: /etc/hosts
-    #       dest: /home/lockerbox/testforpostgresqllistenaddress.conf
-    #       owner: lockerbox
-    #       group: lockerbox
-    #       mode: '0644'
-#task tree: file change # uncomment
-    # tasks:
-    #   - name: File Create for regexp line
-    #     ansible.builtin.lineinfile:
-    #       path: /home/lockerbox/testforpostgresqllistenaddress.conf
-    #       regexp: "# The Following"
-    #       line: The Following ='*'
-    #       backup: yes
-#task four: file change # uncomment
+
     tasks:
       - name: File Create for regexp line postgresql conf file
         ansible.builtin.lineinfile:
