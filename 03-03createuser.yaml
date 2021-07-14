@@ -1,6 +1,6 @@
 ---
   #create postgresql db for master
-  - hosts: postgre
+  - hosts: master
     become: yes
     vars:
       ansible_python_interpreter: /usr/bin/python3
@@ -9,9 +9,9 @@
       - name: Create user for new DB
         become_user: postgres
         postgresql_user:
-          db: rovenmadb
-          name: rovenma
-          password: rov3nma
+          db: dbname
+          name: dbuser
+          password: dbpasswd
           priv: ALL
           state: present
           role_attr_flags: NOSUPERUSER,NOCREATEDB
