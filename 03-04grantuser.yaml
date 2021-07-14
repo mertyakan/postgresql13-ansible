@@ -1,0 +1,17 @@
+---
+  #create postgresql db for master
+  - hosts: postgre
+    become: yes
+    vars:
+      ansible_python_interpreter: /usr/bin/python3
+
+    tasks:
+      - name: Grant users rovenma and access to databases rovenmadb from ipv6 localhost ::1/128 using peer authentication.
+        postgresql_pg_hba:
+          dest: /etc/postgresql/13/main/pg_hba.conf
+          contype: host
+          databases: rovenmadb
+          users: rovenma
+          source: 0.0.0.0/0
+          method: md5
+          create: true

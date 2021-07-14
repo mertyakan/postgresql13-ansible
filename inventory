@@ -1,0 +1,30 @@
+#postgresql master server
+[postgre]
+10.255.122.6
+10.255.122.7
+10.255.122.8
+10.255.122.9
+
+#kubernetes
+[k8s]
+10.255.122.5
+
+#redis
+[redis]
+10.255.122.11
+
+#other
+[other]
+10.255.122.10
+10.255.122.12
+
+#group has all the servers
+[multi:children]
+postgre
+redis
+k8s
+other
+
+#variables for all the servers
+[multi:vars]
+ansible_ssh_user=lockerbox

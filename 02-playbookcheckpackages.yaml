@@ -1,0 +1,22 @@
+---
+  #all server, apt update
+  - hosts: all
+    become: yes
+
+    tasks:
+      - name: Check postgresql-13 software is installed
+        package_facts:
+          manager: "apt"
+#certain package info
+
+      - name: Postgresql & Vim package status
+        debug:
+          msg: "{{ ansible_facts.packages[item] }} {{ 'installed' if item in ansible_facts.packages else 'not installed' }}"
+      #just installed package list version
+        loop:
+        - vim
+        - postgresql-13
+        - net-tools
+        - zabbix-agent
+        - dstat
+###else status; installed but not ready yet.

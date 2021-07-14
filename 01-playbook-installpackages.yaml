@@ -1,0 +1,27 @@
+---
+  #all server, apt update
+  - hosts: all
+    become: yes
+    vars:
+      ansible_python_interpreter: /usr/bin/python3
+    tasks:
+      - name: Using apt update the packages
+        apt:
+          update_cache: yes
+          force_apt_get: yes
+          cache_valid_time: 3600
+
+      # multiple item install apt
+      - name: Install loop list packages
+        apt:
+          name: "{{ item }}"
+          update_cache: yes
+          state: present
+        loop:
+        - htop
+        - tree
+        - vim
+        - python2
+        - net-tools
+        - dstat
+        - python3-psycopg2

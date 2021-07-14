@@ -1,0 +1,9 @@
+---
+  - hosts: postgre
+    become: yes
+  - name : 04-02changepostgresqlconf
+    import_playbook: 04-02changepostgresqlconf.yaml
+  - name : 04-03service restart postgresql
+    import_playbook: 03-05servicerestart.yaml
+    vars:
+      ansible_python_interpreter: /usr/bin/python3

@@ -1,0 +1,13 @@
+---
+  - hosts: postgre
+    become: yes
+  - name : 03-02create db
+    import_playbook: 03-02createdb.yaml
+  - name : 03-03create user
+    import_playbook: 03-03createuser.yaml
+  - name : 03-04 access user in created db
+    import_playbook: 03-04grantuser.yaml
+  - name : 03-05service restart postgresql
+    import_playbook: 03-05servicerestart.yaml
+    vars:
+      ansible_python_interpreter: /usr/bin/python3
