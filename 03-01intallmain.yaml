@@ -1,5 +1,5 @@
 ---
-  - hosts: postgre
+  - hosts: master
     become: yes
   - name : 03-02create db
     import_playbook: 03-02createdb.yaml
