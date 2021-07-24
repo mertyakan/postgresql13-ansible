@@ -5,6 +5,16 @@
     vars:
       ansible_python_interpreter: /usr/bin/python3
     tasks:
+      - name: Add an postgresql signing key
+        ansible.builtin.apt_key:
+          url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+          state: present
+
+      - name: Add postgresql repository into sources list
+        ansible.builtin.apt_repository:
+          repo: deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main
+          state: present
+
       - name: Using apt update the packages
         apt:
           update_cache: yes
@@ -20,8 +30,10 @@
         loop:
         - htop
         - tree
+        - gnupg2
         - vim
         - python2
+        - postgresql-13
         - net-tools
         - dstat
         - python3-psycopg2
