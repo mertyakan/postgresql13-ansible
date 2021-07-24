@@ -9,7 +9,7 @@
       - name: Create user for new DB
         become_user: postgres
         postgresql_user:
-          db: dbname
+          db: mertdb
           name: dbuser
           password: dbpasswd
           priv: ALL
