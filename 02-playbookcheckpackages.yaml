@@ -2,6 +2,8 @@
   #all server, apt update
   - hosts: all
     become: yes
+    vars:
+      ansible_python_interpreter: /usr/bin/python3
 
     tasks:
       - name: Check postgresql-13 software is installed
