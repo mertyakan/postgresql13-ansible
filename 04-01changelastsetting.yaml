@@ -1,5 +1,5 @@
 ---
-  - hosts: postgre
+  - hosts: master
     become: yes
   - name : 04-02changepostgresqlconf
     import_playbook: 04-02changepostgresqlconf.yaml
