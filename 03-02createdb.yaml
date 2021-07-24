@@ -9,5 +9,5 @@
       - name: Create new DB
         become_user: postgres
         postgresql_db:
-          name: dbname
+          name: mertdb
           owner: postgres
